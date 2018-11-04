@@ -1,0 +1,15 @@
+app:
+  tty: true
+  stdin_open: true
+  build: .
+  command: bash -c "rm -f tmp/pids/server.pid && bundle exec puma -C config/puma.rb"
+  volumes:
+    - .:/app
+  ports:
+    - "3000:3000"
+  links:
+    - postgres
+postgres:
+  image: postgres:9.6
+  ports:
+    - "5432"

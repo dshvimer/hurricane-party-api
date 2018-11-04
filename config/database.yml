@@ -1,0 +1,22 @@
+default: &default
+  username: postgres
+  password:
+  host: postgres
+  port: 5432
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: hurricane-party-api_development
+
+test:
+  <<: *default
+  database: hurricane-party-api_test
+
+production:
+  <<: *default
+  database: hurricane-party-api_production
+  username: hurricane-party-api
+  password: <%= ENV['HURRICANE-PARTY-API_DATABASE_PASSWORD'] %>
