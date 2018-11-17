@@ -1,7 +1,8 @@
 default: &default
   username: postgres
   password:
-  host: postgres
+  # host: postgres
+  host: localhost
   port: 5432
   adapter: postgresql
   encoding: unicode
