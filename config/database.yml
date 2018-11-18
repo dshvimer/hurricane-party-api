@@ -1,16 +1,13 @@
 default: &default
-  username: postgres
-  password:
-  # host: postgres
-  host: localhost
-  port: 5432
   adapter: postgresql
   encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: hurricane-party-api_development
+  database: blog_development
 
 test:
   <<: *default
