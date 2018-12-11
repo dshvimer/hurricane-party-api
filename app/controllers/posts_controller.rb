@@ -3,7 +3,11 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    if query_params[:sort] == 'nearby'
+      @posts = Post.close_to(current_user)
+    else
+      @posts = Post.order(created_at: :desc)
+    end
 
     render json: @posts
   end
@@ -24,5 +28,9 @@ class PostsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def post_params
       params.require(:post).permit(:user_id, :body)
+    end
+
+    def query_params
+      params.permit(:sort)
     end
 end
