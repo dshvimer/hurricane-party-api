@@ -180,6 +180,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   geocoder
+  jwt
   knock
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
@@ -197,4 +198,4 @@ RUBY VERSION
    ruby 2.5.3p105
 
 BUNDLED WITH
-   1.17.1
+   1.17.2

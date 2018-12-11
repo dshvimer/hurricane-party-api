@@ -47,7 +47,7 @@ RSpec.describe "Posts", type: :request do
       it { is_expected.to have_http_status(:ok) }
 
       it 'returns serialized posts' do
-        expect(json[:posts]).to eq user.posts.map { |p| PostSerializer.new(p).to_hash }
+        expect(json[:posts]).to eq Post.order(created_at: :desc).map { |p| PostSerializer.new(p).to_hash }
       end
     end
   end
