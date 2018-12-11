@@ -10,6 +10,5 @@ RSpec.describe PostsController, type: :routing do
       expect(:post => "/posts").to route_to("posts#create")
     end
 
-    it "routes to #destroy"
   end
 end
